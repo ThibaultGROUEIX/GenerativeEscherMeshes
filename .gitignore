@@ -9,7 +9,7 @@ nvdiffrast/
 cat.png
 *png
 *mp4
-*txt
+# *txt
 *obj
 *mtl
 *gif
