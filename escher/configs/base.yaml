@@ -1,0 +1,53 @@
+# DEVICE : torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+IMAGE_BATCH_SIZE : 6 #how many renderings, change this to >1 to get OOM
+TEXTURE_DROP_PROB: 50
+USE_HALF_PRECISION : True #Use half precision for the SDS. Im TF32, batch is limited to 16, else 32
+DEVICE : "cuda"  # 
+OUTPUT_DIR : "output"
+SEED : 62389572394075
+USE_INTENSITY : False  # if True, will not use RGB but just blend between one color (Blue) and white. to avoid black pixels.
+### prompts
+PROMPT : "A professional cartoon of nerdy bear, a masterpiece"
+  # - "a masterpiece, a beautiful illustration of a tree, a masterpiece"
+  # - "A beautiful illustration of a man doing yoga in a tree pose"
+  # - "a masterpiece, a beautiful illustration of a tree, a masterpiece"
+  
+NEGATIVE_PROMPT : "" #longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality"
+### geometry
+MESH_RESOLUTION : 50  # resolution of the mesh to use (NxN vertices on square
+W_RANGE : 0.95  # range of the weights used in Tutte. Closer to 1 makes more extreme deformation, 0 makes all weights uniform without ability to move
+W_REGULARIZATION : 0.000  # weight on a term that makes each subtile the same area. If enabled, works well between 1^3 and 10^6
+AREA_REGULARIZATION : 0.1  # weight on a term that penalizes too big weights in Tutte. There's no reason for very high weights, any deformation can be represented with smaller weights that sum to 1
+RANDOM_RIGID : True #apply random rigid transformation
+NO_DEFORMATION : False  # if True, we don't move vertices. ##TODO return this to false
+USE_TARGET_IMAGE : False  # if true tries to render a given image instead of SDS. TODO return this to false
+OPTIMISE_TEXTURE_MAP : True  # if true, optimzes a texture map. Else uses per-vertex colors.
+LATENT_OPTIM : False  # if true, optimizes a 4 channel latent vector instead of a RGB texture map
+RENDERER_IMAGE_DIM : 512 #working was 64
+RANDOM_BACKGROUND : True # if true, uses a random background for the rendered image
+VISUALIZATION_FREQ : 200
+TILING_RENDER_FREQ : 200
+TEXTUAL_INVERSION : False # Use textual inversion
+PRETRAINED_MODEL_NAME_OR_PATH : "stabilityai/stable-diffusion-2-1-base"
+GUIDANCE : "SD" # "IF" or "SD" for DeepFloyd and Stable-Diffusion.
+GUIDANCE_SCALE : 100 #Parameter-free guidance parameter. High values (100) trade diversity for quality.
+###optimization params
+N_STEPS : 7000  # optimization steps
+ONLY_TEXTURE_FROM_THIS_POINT: 7000
+SCHEDULER : "step"  # "step" or "cosine" or "linear"
+LR : 1e-1
+LR_COLOR : 1e-2
+CLAMP_TEXTURE : True 
+USE_HSV: False
+
+BW: True
+GLOBAL_AFFINE: True
+CLIP_GRADIENTS_IN_SDS: True
+RANDOM_TILE_COLOR: True
+SIGMOID_WEIGHTS: True
+TILING_TYPE: "ProjectivePlane" #Cylinder, KleinBottle, MobiusStrip, OrbifoldI, OrbifoldIHybrid, OrbifoldII,OrbifoldIIHexagon,OrbifoldIIHybrid, OrbifoldIII, OrbifoldIV,OrbifoldIVHybrid, PinnedBoundary, ProjectivePlane, ReflectSquare, RightAngleHybrid, Torus, TorusHexagon
+EXPERIMENT:  IMAGE_LOSS # OUTLINE or IMAGE_LOSS
+INPUT_OUTLINE: "/home/groueix/tiling/results.pkl" # This has to change
+CROP_RENDERINGS: True
+SYMMETRY_EXPERIMENT: False # If set to true, two copies of the same tile will be optimized via SDS. This is equivalent to operating in a wallpaper group with additional symmetry constraints e.g. two copies of a tile which has reflectional symmetry.
+UV : "FIXED" # FIXED or SPATIAL, if SPATIAL uv(x,y) = x,y reset at every iteration

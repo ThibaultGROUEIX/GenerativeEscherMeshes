@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "escher"
+version = "0.0.1"
+description = "This package creates tilable images using score distillation."
+authors = [ "aigerman <aigerman@adobe.com>", "groueix <groueix@adobe.com>"]
+exclude = [
+    "*.pyc"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"
+numpy = ">1.22.2"
+
+[tool.black]
+line-length = 140
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
