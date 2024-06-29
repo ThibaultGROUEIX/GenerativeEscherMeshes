@@ -110,7 +110,7 @@ This will produce a video of the camera moving over the tiling, as well as a vid
 
 ## Areas of Improvements
 * Distorsion is probably bad for optimization. It would be great to continuously remesh and update the constraints accordingly
- ![Screenshot 2024-04-03 at 13 50 42](https://github.com/ThibaultGROUEIX/GenerativeEscherPatterns/assets/11445067/877d74b9-8d0f-472d-835e-bab4884eedb7)
+![319353292-877d74b9-8d0f-472d-835e-bab4884eedb7](https://github.com/ThibaultGROUEIX/GenerativeEscherMeshes/assets/11445067/36fcb5ce-7bc2-4633-869a-f4190703de8f)
 * Post-process the texture with generative fill to create texture variations with the same shape
 * Autoconvert the output to Adobe Illustrator file format
 
