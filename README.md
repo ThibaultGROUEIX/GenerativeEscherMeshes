@@ -3,7 +3,7 @@ Noam Aigerman, Thibault Groueix, _SIGGRAPH 2024_
 
 [[paper]](https://arxiv.org/abs/2309.14564) [[website]](https://imagine.enpc.fr/~groueixt/escher) 
 
-<img width="1016" alt="Screenshot 2024-06-16 at 7 26 58 PM" src="https://github.com/ThibaultGROUEIX/GenerativeEscherPatterns/assets/11445067/b44013bb-fb3c-408e-9516-fe9ae6e5cad1">
+<img width="1016" alt="340161035-b44013bb-fb3c-408e-9516-fe9ae6e5cad1" src="https://github.com/ThibaultGROUEIX/GenerativeEscherMeshes/assets/11445067/8e5f57c9-1d45-4273-b895-e2b75ea091fb">
 
 
 
