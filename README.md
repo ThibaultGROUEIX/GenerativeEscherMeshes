@@ -67,7 +67,26 @@ pip install --upgrade pip
 # python setup.py install : NotADirectoryError
 pip install .
 ```
-
+When you don't have admin privileges (no sudo access) on a Linux system, Use Conda to install instead
+```sh
+conda install -c conda-forge pkg-config libegl libgles libglvnd cmake ninja curl
+```
+Edit ~/.bashrc to set up environment variables:
+```sh
+vim ~/.bashrc
+```
+Add the following lines to ~/.bashrc:
+```sh
+export PYTHONDONTWRITEBYTECODE=1
+export NVIDIA_VISIBLE_DEVICES=all
+export NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics
+export PYTHONUNBUFFERED=1
+export PYOPENGL_PLATFORM=egl
+```
+Save and exit (:wq), then reload:
+```sh
+source ~/.bashrc
+```
 ### DeeeFloyd
 
 Follow these additional steps to install DeepFloyd
