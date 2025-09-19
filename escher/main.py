@@ -547,6 +547,8 @@ class Escher:
                         global_rotation=True, map_type=self.constraint_data.get_global_transformation_type()
                     )
                     mapped = GlobalDeformation.map(mapped, global_A)
+            else:
+                self.optimizer.zero_grad()
 
             if self.args.BW:
                 texture = torch.tile(self.color_parameters[:, :, :, :1], (1, 1, 1, 3))
